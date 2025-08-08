@@ -1,0 +1,29 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main() {
+    int H; int M; int X; int NH; int NM;
+    cin >> H >> M;
+    cin >> X;
+
+    if ((X + M) < 60) {
+        NM = X + M;
+        NH = H;
+    }
+
+    else if ((X + M) >= 60) {
+        int HP = (X+M) / 60;
+        NM = (X + M) % 60;
+
+        if (H + HP < 24) {
+            NH = H + HP;
+        }
+        else 
+            NH = H + HP - 24;
+    }
+
+    cout << setfill('0') << setw(2) << NH << " " << setfill('0') << setw(2) << NM;
+
+}
